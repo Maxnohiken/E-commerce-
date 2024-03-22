@@ -1,3 +1,4 @@
+
 import { Card, Container, Grid } from "@mui/material";
 import { AppContext } from "../Context";
 import { useContext } from "react";
@@ -8,6 +9,7 @@ export function Home () {
     return (
         <>
             <Container maxWidth="lg">
+
       <h1>Home</h1>
 
       <Grid container spacing={2}>
@@ -19,7 +21,9 @@ export function Home () {
       </Grid>
     </Container>
 
+
             </>
         
     )
 }
+

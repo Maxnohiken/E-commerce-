@@ -2,7 +2,9 @@ import { CircularProgress } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "./Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import DrawerAppBar from "./components/navbarComponent";
+
 
 function App() {
   const { paid, username, products } = useContext(AppContext);
@@ -22,7 +24,6 @@ function App() {
     );
   return (
     <BrowserRouter>
-      {!paid && <Navbar />}
       <Routes>
         <DrawerAppBar/>
         <Route path="/" element={<RouteHome />}></Route>

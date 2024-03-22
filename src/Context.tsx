@@ -6,6 +6,9 @@ export const AppContext = createContext<TContext>({
   products: [],
   cart: [],
   paid: false,
+  admin: false,
+  filteredProducts: [],
+  searchTerm: "",
   addToCart: () => {},
   removeFromCart: () => {},
   checkout: () => {},
@@ -14,9 +17,7 @@ export const AppContext = createContext<TContext>({
   getTotalAvailableProduct: () => 0,
   login: () => {},
   logout: () => {},
-  searchTerm: "",
   setSearchTerm: () => {},
-  filteredProducts: [],
   handleSearchChange: () => {},
 });
 

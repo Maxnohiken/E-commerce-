@@ -12,6 +12,7 @@ export interface TContext {
   products: Array<Product>;
   cart: Array<{ prod: Product; qty: number }>;
   paid: boolean;
+  admin: boolean;
   addToCart: (product: Product, num: number) => void;
   removeFromCart: (idProduct: Product["id"]) => void;
   checkout: () => void;

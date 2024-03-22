@@ -2,13 +2,14 @@ export interface Product {
   id: number;
   title: string;
   price: number;
-  qty: number;
+  count: number;
   image: string;
   description: string;
 }
 
 export interface TContext {
   username: string;
+  password: string;
   products: Array<Product>;
   cart: Array<{ prod: Product; qty: number }>;
   paid: boolean;

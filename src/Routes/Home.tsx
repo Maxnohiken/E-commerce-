@@ -1,13 +1,15 @@
+
+import { Card, Container, Grid } from "@mui/material";
+import { AppContext } from "../Context";
 import { useContext } from "react";
 
-import { Container, Grid } from "@mui/material";
-import { AppContext } from "../Context";
-import { Card } from "../components/card";
+export function Home () {
+    const { filteredProducts } = useContext(AppContext);
 
-export function RouteHome() {
-  const { filteredProducts } = useContext(AppContext);
-  return (
-    <Container maxWidth="lg">
+    return (
+        <>
+            <Container maxWidth="lg">
+
       <h1>Home</h1>
 
       <Grid container spacing={2}>
@@ -18,5 +20,10 @@ export function RouteHome() {
         ))}
       </Grid>
     </Container>
-  );
+
+
+            </>
+        
+    )
 }
+

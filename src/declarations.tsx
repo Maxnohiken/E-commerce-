@@ -21,8 +21,8 @@ export interface TContext {
   getTotalAvailableProduct: (product: Product) => number;
   login: (username: string) => void;
   logout: () => void;
-  searchTerm: string; // Aggiungi searchTerm al tipo TContext
-  setSearchTerm: (term: string) => void; // Aggiungi setSearchTerm al tipo TContext
-  filteredProducts: Product[]; // Aggiungi filteredProducts al tipo TContext
-  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void; // Aggiungi handleSearchChange al tipo TContext
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+  filteredProducts: Product[];
+  handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

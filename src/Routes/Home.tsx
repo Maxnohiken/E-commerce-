@@ -3,7 +3,7 @@ import { AppContext } from "../Context";
 import { useContext } from "react";
 import { Card } from "../components/card";
 
-export function Home() {
+export function RouteHome() {
   const { filteredProducts } = useContext(AppContext);
 
   return (

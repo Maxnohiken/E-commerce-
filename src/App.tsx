@@ -2,6 +2,7 @@ import { CircularProgress } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "./Context";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { RouteHome } from "./Routes/Home";
 
 function App() {
   const { paid, username, products } = useContext(AppContext);
@@ -21,7 +22,6 @@ function App() {
     );
   return (
     <BrowserRouter>
-      {!paid && <Navbar />}
       <Routes>
         <Route path="/" element={<RouteHome />}></Route>
         <Route element={<RouteProtected />}>

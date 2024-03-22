@@ -20,7 +20,7 @@ export interface TContext {
   getTotalProductInCart: () => number;
   onCheckoutSuccess: () => void;
   getTotalAvailableProduct: (product: Product) => number;
-  login: (username: string) => void;
+  login: (username: string, password: string) => void;
   logout: () => void;
   searchTerm: string;
   setSearchTerm: (term: string) => void;

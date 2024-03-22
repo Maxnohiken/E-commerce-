@@ -21,7 +21,7 @@ function App() {
     );
   return (
     <BrowserRouter>
-      {!paid && !!username && <Navbar />}
+      {!paid && <Navbar />}
       <Routes>
         <Route path="/" element={<RouteHome />}></Route>
         <Route element={<RouteProtected />}>

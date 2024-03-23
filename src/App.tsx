@@ -2,7 +2,6 @@ import { CircularProgress } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "./Context";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
 import DrawerAppBar from "./components/navbarComponent";
 import { RouteHome } from "./Routes/Home";
 import { RouteCheckout } from "./Routes/Checkout";
@@ -35,7 +34,7 @@ function App() {
           <Route path="/checkout" element={<RouteCheckout />} />
         </Route>
         <Route element={<RouteAdmin />}>
-          <Route path="/Dashboard" element={<RouteDashboard />} />
+          <Route path="/dashboard" element={<RouteDashboard />} />
         </Route>
         <Route path="/404" element={<Route404 />} />
         <Route path="*" element={<Navigate to="/404" />} />

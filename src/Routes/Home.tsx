@@ -1,6 +1,7 @@
-import { Card, Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import { AppContext } from "../Context";
 import { useContext } from "react";
+import { Card } from "../components/card";
 
 export function RouteHome () {
     const { filteredProducts } = useContext(AppContext);

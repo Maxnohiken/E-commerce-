@@ -1,3 +1,4 @@
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   CssBaseline,
@@ -6,11 +7,33 @@ import {
   Typography,
   Box,
   TextField,
+  IconButton,
+  Button,
+  Drawer,
+  Divider,
 } from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 import Cart from "./cart";
-
+import { AppContext } from "../Context";
 
 const DrawerAppBar = () => {
+  const {
+    username,
+    admin,
+    handleSearchChange,
+    searchTerm,
+    logout,
+  } = useContext(AppContext);
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpenDrawer(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpenDrawer(false);
+  };
+
   return (
     <>
       <CssBaseline />
@@ -29,11 +52,44 @@ const DrawerAppBar = () => {
               fullWidth
               margin="normal"
               style={{ backgroundColor: "white", color: "white", width: "600px", maxWidth: "80%" }}
+              value={searchTerm}
+              onChange={handleSearchChange}
             />
           </Box>
-          <Cart />
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
+            <MenuIcon />
+          </IconButton>
+          {username ? (
+            <Button color="inherit" onClick={logout}>
+              Logout {username}
+            </Button>
+          ) : (
+            <Button color="inherit" component={Link} to="/login">
+              Login
+            </Button>
+          )}
+          {admin && (
+            <Button color="inherit" component={Link} to="/dashboard">
+              Dashboard
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
+      <Drawer
+        sx={{
+          width: 240,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: 240,
+          },
+        }}
+        anchor="right"
+        open={openDrawer}
+        onClose={handleDrawerClose}
+      >
+        <Divider />
+        <Cart />
+      </Drawer>
     </>
   );
 };

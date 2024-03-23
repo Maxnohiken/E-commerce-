@@ -38,7 +38,7 @@ export function ContextProvider({ children }: Props) {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   async function getProducts() {
-    const response = await fetch("https://mockend.up.railway.app/api/products");
+    const response = await fetch("http://localhost:1234/products");
     const data: Array<Product> = await response.json();
     setProducts(data);
     setFilteredProducts(data);

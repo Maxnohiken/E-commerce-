@@ -8,7 +8,6 @@ import { RouteHome } from "./Routes/Home";
 import { RouteCheckout } from "./Routes/Checkout";
 import { Route404 } from "./Routes/404";
 
-
 function App() {
   const { paid, username, products } = useContext(AppContext);
 

@@ -25,5 +25,8 @@ export interface TContext {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   filteredProducts: Product[];
+  setFilteredProducts: (products: Product[]) => void;
+  setAdmin: (admin: boolean) => void;
   handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  handleDeleteProduct: (id: number) => void;
 }

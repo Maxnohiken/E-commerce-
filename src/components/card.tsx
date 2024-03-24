@@ -6,21 +6,31 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useContext, useState } from "react";
 import { AppContext } from "../Context";
 import { Product } from "../declarations";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ShoppingCart from "@mui/icons-material/AddShoppingCart";
 
 interface Props {
   product: Product;
+  handleDeleteProduct: (id: number) => void;
 }
 
 export function Card({ product }: Props) {
-  const { addToCart, getTotalAvailableProduct } = useContext(AppContext);
+  const {
+    addToCart,
+    getTotalAvailableProduct,
+    admin,
+
+    handleDeleteProduct,
+  } = useContext(AppContext);
 
   const totalAvailable = getTotalAvailableProduct(product);
   const [input, setInput] = useState(1);
+  const location = useLocation();
+  console.log("admin", admin);
   return (
     <MaterialCard
       sx={{
+        position: "relative",
         maxWidth: 345,
         height: "100%",
         display: "flex",
@@ -29,6 +39,17 @@ export function Card({ product }: Props) {
         alignItems: "center",
       }}
     >
+      {location.pathname === "/dashboard" && admin && (
+        <Button
+          variant="contained"
+          color="error"
+          size="small" // Imposta la dimensione del bottone su "small"
+          style={{ position: "absolute", top: 0, right: 0, zIndex: 999 }}
+          onClick={() => handleDeleteProduct(product.id)}
+        >
+          Elimina
+        </Button>
+      )}
       <CardActionArea>
         <Link to={`/p/${product.id}`} style={{ textDecoration: "none" }}>
           <CardMedia

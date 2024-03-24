@@ -19,7 +19,10 @@ export const AppContext = createContext<TContext>({
   login: () => {},
   logout: () => {},
   setSearchTerm: () => {},
+  setFilteredProducts: () => {},
+  setAdmin: () => {},
   handleSearchChange: () => {},
+  handleDeleteProduct: () => {},
 });
 
 interface Props {
@@ -119,7 +122,11 @@ export function ContextProvider({ children }: Props) {
     if (user) {
       if (user.password === password) {
         setPassword(password);
-        localStorage.setItem("username", username);
+        const userData = {
+          username: username,
+          admin: true,
+        };
+        localStorage.setItem("user", JSON.stringify(userData)); // Salva lo username e lo stato di admin come oggetto JSON
         setAdmin(true);
       } else {
         return false;
@@ -131,8 +138,9 @@ export function ContextProvider({ children }: Props) {
   }
 
   function logout() {
-    localStorage.removeItem("username");
-    window.location.reload();
+    localStorage.removeItem("user");
+    setUsername("");
+    setAdmin(false);
   }
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,6 +150,35 @@ export function ContextProvider({ children }: Props) {
     );
     setFilteredProducts(filtered);
   };
+
+  const handleDeleteProduct = async (id: number) => {
+    try {
+      const response = await fetch(`http://localhost:1234/products/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Errore durante l'eliminazione del prodotto");
+      }
+
+      // Rimuovi il prodotto eliminato dall'elenco dei prodotti filtrati
+      const updatedProducts = filteredProducts.filter(
+        (product) => product.id !== id
+      );
+      setFilteredProducts(updatedProducts);
+    } catch (error: unknown) {
+      console.error("Si è verificato un errore:", (error as Error).message);
+    }
+  };
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      const { username, admin } = JSON.parse(userData);
+      setUsername(username);
+      setAdmin(admin);
+    }
+  }, []);
 
   return (
     <AppContext.Provider
@@ -164,6 +201,9 @@ export function ContextProvider({ children }: Props) {
         filteredProducts,
         handleSearchChange,
         admin,
+        setFilteredProducts,
+        setAdmin,
+        handleDeleteProduct,
       }}
     >
       {children}

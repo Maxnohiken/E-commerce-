@@ -12,7 +12,7 @@ import {
   Drawer,
   Divider,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Cart from "./cart";
 import { AppContext } from "../Context";
 import RouteLoginButton from "./login";
@@ -64,14 +64,6 @@ const DrawerAppBar = () => {
               onChange={handleSearchChange}
             />
           </Box>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerOpen}
-          >
-            <MenuIcon />
-          </IconButton>
           {username ? (
             <Button color="inherit" onClick={logout}>
               Logout {username}
@@ -84,14 +76,17 @@ const DrawerAppBar = () => {
               Dashboard
             </Button>
           )}
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
+            <ShoppingCartIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
         sx={{
-          width: 240,
+          width: 320,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: 240,
+            width: 320,
           },
         }}
         anchor="right"

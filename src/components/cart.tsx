@@ -3,8 +3,8 @@ import { Button, Typography } from "@mui/material";
 import { AppContext } from "../Context";
 import { Link } from "react-router-dom";
 
-const Cart = () => {
-  const { getTotalProductInCart, cart, removeFromCart } =
+const Cart = () => 
+  const { getTotalProductInCart, cart, removeFromCart,checkout } = useContext(AppContext)
     useContext(AppContext);
   const total = getTotalProductInCart();
 

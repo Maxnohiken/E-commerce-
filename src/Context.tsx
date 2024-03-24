@@ -118,21 +118,24 @@ export function ContextProvider({ children }: Props) {
 
   function login(username: string, password: string) {
     const user = users?.find((user) => user.username === username);
-    setUsername(username);
-    if (user) {
-      if (user.password === password) {
-        setPassword(password);
-        const userData = {
-          username: username,
-          admin: true,
-        };
-        localStorage.setItem("user", JSON.stringify(userData)); // Salva lo username e lo stato di admin come oggetto JSON
-        setAdmin(true);
-      } else {
-        return false;
-      }
-    } else {
+
+    if (!user) {
       alert("User not found");
+      return false;
+    }
+
+    if (user.password === password) {
+      const userData = {
+        username: username,
+        admin: true,
+      };
+      localStorage.setItem("user", JSON.stringify(userData));
+      setUsername(username);
+      setAdmin(true);
+      setPassword(password);
+      return true;
+    } else {
+      alert("Incorrect password");
       return false;
     }
   }

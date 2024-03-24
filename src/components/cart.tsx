@@ -4,7 +4,7 @@ import { AppContext } from "../Context";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { getTotalProductInCart, cart, removeFromCart } = useContext(AppContext);
+  const { getTotalProductInCart, cart, removeFromCart,checkout } = useContext(AppContext);
   const total = getTotalProductInCart();
 
   return (
@@ -12,9 +12,7 @@ const Cart = () => {
       <Typography variant="h6" component="div" style={{ cursor: "pointer" }}>
         Il mio carrello
       </Typography>
-        {cart.length === 0 ? (
-          <Typography>Il carrello è vuoto</Typography>
-        ) : (
+       
           <>
             {cart.map((item) => (
               <div key={item.prod.id}>
@@ -30,12 +28,11 @@ const Cart = () => {
               </div>
             ))}
               <Typography>Totale: {total}</Typography>  
-              <Button variant="contained" color="primary" component={Link} to="/checkout">
+              <Button variant="contained" color="primary" component={Link} to="/checkout" onClick={checkout}>
                 Acquista
               </Button>
               
           </>
-        )}
     </>
   );
 };

@@ -33,7 +33,7 @@ const DrawerAppBar = () => {
   return (
     <>
       <CssBaseline />
-      <AppBar component="nav" position="static">
+      <AppBar component="nav" position="static" sx={{backgroundColor:"red"}}>
         <Toolbar>
           <Typography variant="h6" component="div">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>

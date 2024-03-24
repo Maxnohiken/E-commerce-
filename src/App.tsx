@@ -2,11 +2,12 @@ import { CircularProgress } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "./Context";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-
 import { Route404 } from "./Routes/404";
 import { RouteHome } from "./Routes/Home";
 import { RouteCheckout } from "./Routes/Checkout";
 import RouteDashboard from "./components/dashboardComponent";
+import { RouteProtectedCheckout } from "./components/routeProtectedCheckout";
+import { RouteAdmin } from "./components/routeAdmin";
 
 function App() {
   const { products } = useContext(AppContext);
@@ -28,8 +29,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RouteHome />}></Route>
-          <Route path="/checkout" element={<RouteCheckout />} />1
+        <Route element={<RouteProtectedCheckout />}>
+          <Route path="/checkout" element={<RouteCheckout />} />
+        </Route>
+        <Route element={<RouteAdmin />}>
           <Route path="/dashboard" element={<RouteDashboard />} />
+        </Route>
           <Route path="/404" element={<Route404 />} />
           <Route path="*" element={<Navigate to="/404" />} />
       </Routes>

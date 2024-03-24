@@ -9,9 +9,9 @@ export function RouteHome() {
 
   return (
     <>
-      {" "}
-      {!paid && <DrawerAppBar />}
-      <Container maxWidth="lg" style={{ marginTop: "20px" }}>
+      <Container maxWidth="lg">
+        {!paid && <DrawerAppBar />}
+
         <Grid container spacing={2}>
           {filteredProducts.map((product) => (
             <Grid item sm={6} md={3} key={product.id}>

@@ -1,54 +1,41 @@
-import { useContext, useState } from "react";
-import { IconButton, Badge, Menu, MenuItem, Button } from "@mui/material";
-import { ShoppingCart as ShoppingCartIcon } from "@mui/icons-material";
+import { useContext } from "react";
+import { Button, Typography } from "@mui/material";
 import { AppContext } from "../Context";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { getTotalProductInCart, cart, removeFromCart } = useContext(AppContext);
   const total = getTotalProductInCart();
 
-  const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleCartClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <>
-      <IconButton aria-label="cart" onClick={handleCartClick}>
-        <Badge badgeContent={total} color="error">
-          <ShoppingCartIcon />
-        </Badge>
-      </IconButton>
-      <Menu
-        id="cart-menu"
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        {cart.map((item) => (
-          <MenuItem key={item.prod.id}>
-            <img
-              src={item.prod.image}
-              alt={item.prod.title}
-              style={{ width: "50px", height: "50px" }}
-            />
-            {item.prod.title} - {item.prod.price}
-            <Button onClick={() => removeFromCart(item.prod.id)}>
-              Rimuovi
-            </Button>
-          </MenuItem>
-        ))}
-        <MenuItem>
-          <Button variant="contained" color="primary">
-            Acquista
-          </Button>
-        </MenuItem>
-      </Menu>
+      <Typography variant="h6" component="div" style={{ cursor: "pointer" }}>
+        Il mio carrello
+      </Typography>
+        {cart.length === 0 ? (
+          <Typography>Il carrello è vuoto</Typography>
+        ) : (
+          <>
+            {cart.map((item) => (
+              <div key={item.prod.id}>
+                <img
+                  src={item.prod.image}
+                  alt={item.prod.title}
+                  style={{ width: "50px", height: "50px" }}
+                />
+                {item.prod.title} - {item.prod.price}
+                <Button onClick={() => removeFromCart(item.prod.id)}>
+                  Rimuovi
+                </Button>
+              </div>
+            ))}
+              <Typography>Totale: {total}</Typography>  
+              <Button variant="contained" color="primary" component={Link} to="/checkout">
+                Acquista
+              </Button>
+              
+          </>
+        )}
     </>
   );
 };

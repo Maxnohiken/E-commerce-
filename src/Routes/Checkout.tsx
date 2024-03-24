@@ -6,7 +6,7 @@ export function RouteCheckout() {
 
   useEffect(() => {
     setTimeout(onCheckoutSuccess, 3000);
-  }, []);
+  }, [onCheckoutSuccess]);
 
   return (
     <div>

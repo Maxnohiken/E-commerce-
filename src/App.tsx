@@ -5,6 +5,8 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { Route404 } from "./Routes/404";
 import { RouteHome } from "./Routes/Home";
+import { RouteCheckout } from "./Routes/Checkout";
+import RouteDashboard from "./components/dashboardComponent";
 
 function App() {
   const { products } = useContext(AppContext);
@@ -28,9 +30,8 @@ function App() {
         <Route path="/" element={<RouteHome />}></Route>
           <Route path="/checkout" element={<RouteCheckout />} />1
           <Route path="/dashboard" element={<RouteDashboard />} />
-
-        <Route path="/404" element={<Route404 />} />
-        <Route path="*" element={<Navigate to="/404" />} />
+          <Route path="/404" element={<Route404 />} />
+          <Route path="*" element={<Navigate to="/404" />} />
       </Routes>
     </BrowserRouter>
   );

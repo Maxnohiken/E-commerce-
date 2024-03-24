@@ -72,14 +72,16 @@ export function Card({ product }: Props) {
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ justifyContent: "flex-end" }}>
-        <Button
-          variant="contained"
-          endIcon={<ShoppingCart />}
-          disabled={totalAvailable === 0}
-          onClick={() => addToCart(product, input)}
-        >
-          {totalAvailable > 1 ? "Aggiungi al carrello" : "Non disponibile"}
-        </Button>
+        {location.pathname === "/" && (
+          <Button
+            variant="contained"
+            endIcon={<ShoppingCart />}
+            disabled={totalAvailable === 0}
+            onClick={() => addToCart(product, input)}
+          >
+            {totalAvailable >= 1 ? "Aggiungi al carrello" : "Non disponibile"}
+          </Button>
+        )}
       </CardActions>
     </MaterialCard>
   );

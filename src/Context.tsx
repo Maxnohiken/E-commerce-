@@ -61,6 +61,7 @@ export function ContextProvider({ children }: Props) {
         (productCart) => productCart.prod.id !== idProduct
       );
       setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     }
     if (!!productFound && productFound.qty > 1) {
       const newCart = cart.map((cartProduct) => {
@@ -69,6 +70,7 @@ export function ContextProvider({ children }: Props) {
         return cartProduct;
       });
       setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     }
   }
 
@@ -79,6 +81,7 @@ export function ContextProvider({ children }: Props) {
     if (!productFound) {
       const newCart = [...cart, { prod: product, qty: num }];
       setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     } else {
       const newCart = cart.map((productCart) =>
         product.id === productCart.prod.id
@@ -86,6 +89,7 @@ export function ContextProvider({ children }: Props) {
           : { ...productCart }
       );
       setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
     }
   }
 
@@ -108,31 +112,29 @@ export function ContextProvider({ children }: Props) {
   function getTotalAvailableProduct(product: Product) {
     const productInCart = cart.find(({ prod }) => prod.id === product.id);
     const totalProductInCart = productInCart ? productInCart.qty : 0;
-    return product.count - totalProductInCart;
+    return product.quantity - totalProductInCart;
   }
-
-  useEffect(() => {
-    getProducts();
-    getUsers();
-  }, []);
 
   function login(username: string, password: string) {
     const user = users?.find((user) => user.username === username);
-    setUsername(username);
-    if (user) {
-      if (user.password === password) {
-        setPassword(password);
-        const userData = {
-          username: username,
-          admin: true,
-        };
-        localStorage.setItem("user", JSON.stringify(userData)); // Salva lo username e lo stato di admin come oggetto JSON
-        setAdmin(true);
-      } else {
-        return false;
-      }
-    } else {
+
+    if (!user) {
       alert("User not found");
+      return false;
+    }
+
+    if (user.password === password) {
+      const userData = {
+        username: username,
+        admin: true,
+      };
+      localStorage.setItem("user", JSON.stringify(userData));
+      setUsername(username);
+      setAdmin(true);
+      setPassword(password);
+      return true;
+    } else {
+      alert("Incorrect password");
       return false;
     }
   }
@@ -178,6 +180,10 @@ export function ContextProvider({ children }: Props) {
       setUsername(username);
       setAdmin(admin);
     }
+    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCart(storedCart);
+    getProducts();
+    getUsers();
   }, []);
 
   return (

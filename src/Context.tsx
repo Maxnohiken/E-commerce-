@@ -119,7 +119,7 @@ export function ContextProvider({ children }: Props) {
     if (user) {
       if (user.password === password) {
         setPassword(password);
-        sessionStorage.setItem("username", username);
+        localStorage.setItem("username", username);
         setAdmin(true);
       } else {
         return false;
@@ -131,7 +131,8 @@ export function ContextProvider({ children }: Props) {
   }
 
   function logout() {
-    sessionStorage.removeItem("username");
+    localStorage.removeItem("username");
+    window.location.reload();
   }
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {

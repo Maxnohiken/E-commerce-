@@ -12,18 +12,15 @@ import {
   Drawer,
   Divider,
 } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Cart from "./cart";
 import { AppContext } from "../Context";
+import RouteLoginButton from "./login";
 
 const DrawerAppBar = () => {
-  const {
-    username,
-    admin,
-    handleSearchChange,
-    searchTerm,
-    logout,
-  } = useContext(AppContext);
+  const { username, admin, handleSearchChange, searchTerm, logout } =
+    useContext(AppContext);
   const [openDrawer, setOpenDrawer] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -44,26 +41,44 @@ const DrawerAppBar = () => {
               Home
             </Link>
           </Typography>
-          <Box sx={{ flexGrow: 1, textAlign: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flex: "1",
+            }}
+          >
             <TextField
               label=""
               placeholder="Search"
               variant="outlined"
               fullWidth
-              size="small"
+              margin="normal"
+              style={{
+                backgroundColor: "white",
+                color: "white",
+                width: "600px",
+                maxWidth: "80%",
+              }}
               value={searchTerm}
               onChange={handleSearchChange}
-              sx={{ backgroundColor: "white", width:"400px" }} // Imposta lo sfondo bianco
             />
           </Box>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerOpen}
+          >
+            <MenuIcon />
+          </IconButton>
           {username ? (
             <Button color="inherit" onClick={logout}>
               Logout {username}
             </Button>
           ) : (
-            <Button color="inherit" component={Link} to="/login">
-              Login
-            </Button>
+            <RouteLoginButton />
           )}
           {admin && (
             <Button color="inherit" component={Link} to="/dashboard">
@@ -79,7 +94,7 @@ const DrawerAppBar = () => {
         sx={{
           width: 240,
           flexShrink: 0,
-          '& .MuiDrawer-paper': {
+          "& .MuiDrawer-paper": {
             width: 240,
           },
         }}

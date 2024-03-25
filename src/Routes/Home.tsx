@@ -6,17 +6,14 @@ import DrawerAppBar from "../components/navbarComponent";
 import Unsplash from "../components/unsplash";
 
 export function RouteHome() {
-  const {
-    filteredProducts,
-    paid,
-    handleDeleteProduct,
-    searchTerm,
-    handleSearchChange,
-  } = useContext(AppContext);
+
+  const { filteredProducts, paid, handleDeleteProduct, searchTerm, handleSearchChange } = useContext(AppContext);
+
 
   return (
     <>
       {!paid && <DrawerAppBar />}
+
       <Unsplash />
       <Box
         sx={{
@@ -41,15 +38,13 @@ export function RouteHome() {
           value={searchTerm}
           onChange={handleSearchChange}
         />
+
       </Box>
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           {filteredProducts.map((product) => (
             <Grid item sm={6} md={3} key={product.id}>
-              <Card
-                product={product}
-                handleDeleteProduct={handleDeleteProduct}
-              />
+              <Card product={product} handleDeleteProduct={handleDeleteProduct} />
             </Grid>
           ))}
         </Grid>

@@ -8,7 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 export default function Cart() {
-  const { getTotalProductInCart, cart, removeFromCart, emptyCart } =
+  const { getTotalProductInCart, cart, removeFromCart, emptyCart, checkout } =
     useContext(AppContext);
   useContext(AppContext);
   const total = getTotalProductInCart();
@@ -85,13 +85,23 @@ export default function Cart() {
           <Typography>Totale: {total}</Typography>
           <Button
             variant="contained"
-            color="primary"
+            sx={{backgroundColor:"#592020", color:"white", 
+            "&:hover": {
+              backgroundColor: "#973030"}}
+            }
             component={Link}
             to="/checkout"
+            onClick={checkout}
           >
             Acquista
           </Button>
-          <Button onClick={emptyCart}>Svuota Carrello</Button>
+          <Button 
+            onClick={emptyCart}
+            sx={{backgroundColor:"grey", color:"#592020", 
+            '&:hover': {
+              backgroundColor: "#ff6666"}}
+            }
+          >Svuota Carrello</Button>
         </>
       )}
     </>

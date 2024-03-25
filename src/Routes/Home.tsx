@@ -13,8 +13,8 @@ export function RouteHome() {
       {!paid && <DrawerAppBar />}
       <Unsplash />
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width:"85%", margin:"auto" }}>
-        <h2 style={{ textAlign: "right", color: "black", marginRight: "auto" }}>Prodotti</h2>
-        <div style={{ flex: "1", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+        <h2 style={{ textAlign: "right", color: "#592020", marginRight: "auto" }}>Prodotti</h2>
+        <div style={{ width:"400px", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
           <TextField
             label=""
             placeholder="Ricerca Prodotto"
@@ -22,6 +22,7 @@ export function RouteHome() {
             fullWidth
             margin="normal"
             sx={{
+              margin: "0",
               backgroundColor: "white",
               width: "200px",
               maxWidth: "50%",

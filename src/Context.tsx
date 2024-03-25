@@ -26,6 +26,7 @@ export const AppContext = createContext<TContext>({
   getProducts: () => {},
   setProducts: () => {},
   emptyCart: () => {},
+  handleEditProduct: () => {},
 });
 
 interface Props {
@@ -205,7 +206,41 @@ export function ContextProvider({ children }: Props) {
 
   function emptyCart() {
     setCart([]);
+    localStorage.removeItem("cart");
   }
+
+  const handleEditProduct = async (
+    id: number,
+    updatedFields: Partial<Product>
+  ) => {
+    try {
+      const response = await fetch(`http://localhost:1234/products/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedFields),
+      });
+
+      if (response.ok) {
+        const updatedProducts = products.map((product) => {
+          if (product.id === id) {
+            return { ...product, ...updatedFields };
+          }
+          return product;
+        });
+
+        setProducts(updatedProducts);
+        setFilteredProducts(updatedProducts);
+      } else {
+        console.error(
+          `Si è verificato un errore durante l'aggiornamento del prodotto con ID ${id}`
+        );
+      }
+    } catch (error) {
+      console.log();
+    }
+  };
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
@@ -247,6 +282,7 @@ export function ContextProvider({ children }: Props) {
         getProducts,
         setProducts,
         emptyCart,
+        handleEditProduct,
       }}
     >
       {children}

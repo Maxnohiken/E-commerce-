@@ -37,7 +37,7 @@ export function RouteHome() {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           {filteredProducts.map((product) => (
-            <Grid item sm={6} md={3} key={product.id}>
+            <Grid item sm={6} md={3} sx={{display:"flex", justifyContent:"center"}} key={product.id}>
               <Card product={product} handleDeleteProduct={handleDeleteProduct} />
             </Grid>
           ))}

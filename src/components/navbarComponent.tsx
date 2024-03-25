@@ -85,6 +85,7 @@ export default function DrawerAppBar() {
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: 340,
+            padding: "10px",
           },
         }}
         anchor="right"

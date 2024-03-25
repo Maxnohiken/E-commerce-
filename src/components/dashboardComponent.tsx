@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Card } from "../components/card";
-
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context";
 
@@ -84,8 +83,8 @@ export default function RouteDashboard() {
           </IconButton>
         )}
         <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
-          <div style={{ width: 550 }}>
-            <Typography variant="h6" align="center" sx={{ mt: 1, mb: 2 }}>
+          <div style={{ width: 550, padding: 20 }}>
+            <Typography variant="h6" align="center" gutterBottom>
               Aggiungi Prodotto
             </Typography>
             <TextField
@@ -95,7 +94,6 @@ export default function RouteDashboard() {
               onChange={handleInputChange}
               fullWidth
               margin="normal"
-              sx={{ width: "80%" }}
             />
             <TextField
               label="Prezzo"
@@ -104,7 +102,6 @@ export default function RouteDashboard() {
               onChange={handleInputChange}
               fullWidth
               margin="normal"
-              sx={{ width: "80%" }}
               type="number"
             />
             <TextField
@@ -114,7 +111,6 @@ export default function RouteDashboard() {
               onChange={handleInputChange}
               fullWidth
               margin="normal"
-              sx={{ width: "80%" }}
             />
             <TextField
               label="Quantità"
@@ -123,7 +119,6 @@ export default function RouteDashboard() {
               onChange={handleInputChange}
               fullWidth
               margin="normal"
-              sx={{ width: "80%" }}
               type="number"
             />
             <Button
@@ -147,7 +142,7 @@ export default function RouteDashboard() {
           </div>
         </Drawer>
       </div>
-      <Grid container spacing={2} style={{ marginTop: 50, marginLeft: 50 }}>
+      <Grid container spacing={2} style={{ marginTop: 60, padding:20 , margin:"0 auto"}}>
         {filteredProducts.map((product) => (
           <Grid item sm={6} md={3} key={product.id}>
             <Card product={product} handleDeleteProduct={handleDeleteProduct} />

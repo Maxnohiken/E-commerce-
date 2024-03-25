@@ -43,7 +43,7 @@ export function Card({ product }: Props) {
         <Button
           variant="contained"
           color="error"
-          size="small" // Imposta la dimensione del bottone su "small"
+          size="small"
           style={{ position: "absolute", top: 0, right: 0, zIndex: 999 }}
           onClick={() => handleDeleteProduct(product.id)}
         >

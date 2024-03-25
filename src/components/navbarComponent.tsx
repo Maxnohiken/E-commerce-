@@ -12,12 +12,12 @@ import {
   Drawer,
   Divider,
 } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Cart from "./cart";
 import { AppContext } from "../Context";
 import RouteLoginButton from "./login";
 
-const DrawerAppBar = () => {
+export default function DrawerAppBar() {
   const { username, admin, handleSearchChange, searchTerm, logout } =
     useContext(AppContext);
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -33,7 +33,7 @@ const DrawerAppBar = () => {
   return (
     <>
       <CssBaseline />
-      <AppBar component="nav" position="static" sx={{backgroundColor:"red"}}>
+      <AppBar component="nav" position="static" sx={{ backgroundColor: "red" }}>
         <Toolbar>
           <Typography variant="h6" component="div">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
@@ -76,7 +76,12 @@ const DrawerAppBar = () => {
               Dashboard
             </Button>
           )}
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerOpen}
+          >
             <ShoppingCartIcon />
           </IconButton>
         </Toolbar>
@@ -98,6 +103,4 @@ const DrawerAppBar = () => {
       </Drawer>
     </>
   );
-};
-
-export default DrawerAppBar;
+}

@@ -72,7 +72,7 @@ export default function RouteDashboard() {
         Home
       </Button>
       <div style={{ position: "absolute", top: 20, left: open ? 580 : 20 }}>
-        {!open && ( // Il tasto per aprire il drawer viene visualizzato solo quando il drawer è chiuso
+        {!open && (
           <IconButton onClick={toggleDrawer(true)} edge="start">
             <MenuIcon />
           </IconButton>
@@ -99,6 +99,7 @@ export default function RouteDashboard() {
               fullWidth
               margin="normal"
               sx={{ width: "80%" }}
+              type="number"
             />
             <TextField
               label="URL Immagine"
@@ -117,6 +118,7 @@ export default function RouteDashboard() {
               fullWidth
               margin="normal"
               sx={{ width: "80%" }}
+              type="number"
             />
             <Button
               onClick={handleAddProduct}

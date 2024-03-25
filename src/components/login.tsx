@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import { useContext } from "react";
 import { AppContext } from "../Context";
 
-const RouteLoginButton = () => {
+export default function RouteLoginButton() {
   const { login } = useContext(AppContext);
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");
@@ -62,6 +62,4 @@ const RouteLoginButton = () => {
       </Dialog>
     </>
   );
-};
-
-export default RouteLoginButton;
+}

@@ -37,6 +37,7 @@ export function Card({ product }: Props) {
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
+        margin: "0 auto",
       }}
     >
       {location.pathname === "/dashboard" && admin && (

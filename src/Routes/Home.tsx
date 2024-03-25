@@ -21,11 +21,12 @@ export function RouteHome() {
             variant="outlined"
             fullWidth
             margin="normal"
-            style={{
+            sx={{
               backgroundColor: "white",
               width: "200px",
-              height: "40px",
               maxWidth: "50%",
+              maxHeight:"30px",
+              '& div': { maxHeight:'30px'}
             }}
             value={searchTerm}
             onChange={handleSearchChange}

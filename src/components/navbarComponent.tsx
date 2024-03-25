@@ -32,13 +32,13 @@ export default function DrawerAppBar() {
     <>
       <CssBaseline />
       <AppBar component="nav" position="static">
-        <Toolbar sx={{ justifyContent: 'space-between' }}> {/* Utilizzo justifyContent per allineare i contenuti */}
+        <Toolbar sx={{ justifyContent: 'space-between' }}> 
           <Typography variant="h6" component="div">
             <Link to="/" style={{ textDecoration: "none", color: "white" }}>
               Home
             </Link>
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}> {/* Utilizzo Box per creare un contenitore flessibile */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}> 
             {username ? (
               <Button color="inherit" onClick={logout}>
                 Logout {username}
@@ -64,10 +64,10 @@ export default function DrawerAppBar() {
       </AppBar>
       <Drawer
         sx={{
-          width: 320,
+          width: 420,
           flexShrink: 0,
           "& .MuiDrawer-paper": {
-            width: 320,
+            width: 330,
           },
         }}
         anchor="right"

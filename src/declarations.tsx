@@ -32,4 +32,5 @@ export interface TContext {
   getProducts: () => void;
   setProducts: (products: Product[]) => void;
   emptyCart: () => void;
+  handleEditProduct: (id: number, updatedFields: Partial<Product>) => void;
 }

@@ -4,7 +4,7 @@ import { AppContext } from "../Context";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
-  const { getTotalProductInCart, cart, removeFromCart, checkout } =
+  const { getTotalProductInCart, cart, removeFromCart, emptyCart } =
     useContext(AppContext);
   useContext(AppContext);
   const total = getTotalProductInCart();
@@ -43,6 +43,7 @@ export default function Cart() {
           >
             Acquista
           </Button>
+          <Button onClick={emptyCart}>Svuota Carrello</Button>
         </>
       )}
     </>

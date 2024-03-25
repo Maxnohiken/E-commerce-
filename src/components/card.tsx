@@ -31,7 +31,7 @@ export function Card({ product }: Props) {
     <MaterialCard
       sx={{
         position: "relative",
-        maxWidth: 345,
+        maxWidth: 250,
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -60,11 +60,11 @@ export function Card({ product }: Props) {
           />
         </Link>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h6" component="div" sx={{fontSize:"small"}}>
             {product.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {product.price}
+            {product.price} €
           </Typography>
           <Typography variant="body2" color="text.secondary">
             <span>Disponibilità {totalAvailable}</span>

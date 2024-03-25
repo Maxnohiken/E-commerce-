@@ -3,26 +3,42 @@ import { AppContext } from "../Context";
 import { useContext } from "react";
 import { Card } from "../components/card";
 import DrawerAppBar from "../components/navbarComponent";
+import Unsplash from "../components/unsplash";
 
 export function RouteHome() {
+
   const { filteredProducts, paid, handleDeleteProduct, searchTerm, handleSearchChange } = useContext(AppContext);
+
 
   return (
     <>
       {!paid && <DrawerAppBar />}
-      <Box display="flex" justifyContent="center" alignItems="center" padding={2} width="85%" margin="0 auto">
-        <h1>Prodotti</h1>
-        <Box flexGrow={1} display="flex" justifyContent="flex-end">
-          <TextField
-            label=""
-            placeholder="Ricerca Prodotto"
-            variant="outlined"
-            fullWidth
-            value={searchTerm}
-            onChange={handleSearchChange}
-            sx={{ width: "200px", height: "40px" }} 
-          />
-        </Box>
+
+      <Unsplash />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flex: "1",
+        }}
+      >
+        <TextField
+          label=""
+          placeholder="Ricerca Prodotto"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          style={{
+            backgroundColor: "white",
+            color: "white",
+            width: "400px",
+            maxWidth: "50%",
+          }}
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+
       </Box>
       <Container maxWidth="lg">
         <Grid container spacing={2}>

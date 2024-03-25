@@ -31,4 +31,5 @@ export interface TContext {
   handleDeleteProduct: (id: number) => void;
   getProducts: () => void;
   setProducts: (products: Product[]) => void;
+  emptyCart: () => void;
 }

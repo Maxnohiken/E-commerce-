@@ -25,6 +25,7 @@ export const AppContext = createContext<TContext>({
   handleDeleteProduct: () => {},
   getProducts: () => {},
   setProducts: () => {},
+  emptyCart: () => {},
 });
 
 interface Props {
@@ -202,6 +203,10 @@ export function ContextProvider({ children }: Props) {
     }
   };
 
+  function emptyCart() {
+    setCart([]);
+  }
+
   useEffect(() => {
     const userData = localStorage.getItem("user");
     if (userData) {
@@ -241,6 +246,7 @@ export function ContextProvider({ children }: Props) {
         handleDeleteProduct,
         getProducts,
         setProducts,
+        emptyCart,
       }}
     >
       {children}

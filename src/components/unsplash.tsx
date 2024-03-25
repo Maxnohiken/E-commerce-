@@ -19,12 +19,12 @@ function Unsplash() {
       />
       <div
         style={{
-          position: "absolute",
-          left: "215px", 
+          position: "absolute", 
           top: "50%", 
+          left: "50%",
           transform: "translateY(-50%)", 
           textAlign: "center", 
-          width: "100%", 
+          width: "50%", 
           fontFamily: "Roboto",
         }}
       >

@@ -23,6 +23,8 @@ export const AppContext = createContext<TContext>({
   setAdmin: () => {},
   handleSearchChange: () => {},
   handleDeleteProduct: () => {},
+  getProducts: () => {},
+  setProducts: () => {},
 });
 
 interface Props {
@@ -40,18 +42,44 @@ export function ContextProvider({ children }: Props) {
     useState<Array<{ username: string; password: string }>>();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
   async function getProducts() {
-    const response = await fetch("http://localhost:1234/products");
-    const data: Array<Product> = await response.json();
-    setProducts(data);
-    setFilteredProducts(data);
+    try {
+      const apiUrl = "http://localhost:1234";
+
+      const response = await fetch(`${apiUrl}/products`);
+      if (!response.ok) {
+        throw new Error("Errore nella richiesta dei dati");
+      }
+
+      const data = await response.json();
+      setProducts(data);
+      setFilteredProducts(data);
+    } catch (error) {
+      console.error(
+        "Si è verificato un errore durante il recupero dei dati:",
+        error
+      );
+    }
+  }
+  async function getUsers() {
+    try {
+      const apiUrl = "http://localhost:1234";
+      const response = await fetch(`${apiUrl}/users`);
+      if (!response.ok) {
+        throw new Error("Errore nella richiesta dei dati degli utenti");
+      }
+
+      const data = await response.json();
+      setUsers(data);
+    } catch (error) {
+      console.error(
+        "Si è verificato un errore durante il recupero dei dati degli utenti:",
+        error
+      );
+    }
   }
 
-  async function getUsers() {
-    const response = await fetch("http://localhost:1234/users");
-    const data = await response.json();
-    setUsers(data);
-  }
   function removeFromCart(idProduct: Product["id"]) {
     const productFound = cart.find(
       (cartProduct) => cartProduct.prod.id === idProduct
@@ -168,6 +196,7 @@ export function ContextProvider({ children }: Props) {
         (product) => product.id !== id
       );
       setFilteredProducts(updatedProducts);
+      setProducts(updatedProducts);
     } catch (error: unknown) {
       console.error("Si è verificato un errore:", (error as Error).message);
     }
@@ -210,6 +239,8 @@ export function ContextProvider({ children }: Props) {
         setFilteredProducts,
         setAdmin,
         handleDeleteProduct,
+        getProducts,
+        setProducts,
       }}
     >
       {children}

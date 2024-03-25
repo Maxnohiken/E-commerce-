@@ -14,8 +14,13 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context";
 
 export default function RouteDashboard() {
-  const { filteredProducts, setFilteredProducts, handleDeleteProduct } =
-    useContext(AppContext);
+  const {
+    filteredProducts,
+    setFilteredProducts,
+    handleDeleteProduct,
+    products,
+    setProducts,
+  } = useContext(AppContext);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [newProduct, setNewProduct] = useState({
@@ -53,6 +58,7 @@ export default function RouteDashboard() {
       console.log("Nuovo prodotto aggiunto:", addedProduct);
 
       setFilteredProducts([...filteredProducts, addedProduct]);
+      setProducts([addedProduct, ...products]);
     } catch (error: unknown) {
       console.error("Si è verificato un errore:", (error as Error).message);
     }

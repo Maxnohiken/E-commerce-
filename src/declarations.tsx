@@ -29,4 +29,6 @@ export interface TContext {
   setAdmin: (admin: boolean) => void;
   handleSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   handleDeleteProduct: (id: number) => void;
+  getProducts: () => void;
+  setProducts: (products: Product[]) => void;
 }

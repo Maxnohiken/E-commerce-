@@ -11,6 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Card } from "../components/card";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context";
+import HouseIcon from '@mui/icons-material/House';
 
 export default function RouteDashboard() {
   const {
@@ -70,11 +71,11 @@ export default function RouteDashboard() {
 
   return (
     <div style={{ marginLeft: drawerWidth }}>
-      <Button
+      <Button 
         onClick={() => navigate("/")}
-        style={{ position: "absolute", top: 20, right: 20, zIndex: 999 }}
+        style={{ position: "absolute", top: 20, right: 20, zIndex: 999, color: "#592020"}}
       >
-        Home
+        <HouseIcon />
       </Button>
       <div style={{ position: "absolute", top: 20, left: open ? 580 : 20 }}>
         {!open && (
@@ -126,7 +127,11 @@ export default function RouteDashboard() {
               variant="contained"
               color="primary"
               fullWidth
-              style={{ marginTop: 20 }}
+              sx={{ backgroundColor: "#592020",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#973030", }}}
             >
               Aggiungi
             </Button>
@@ -135,16 +140,23 @@ export default function RouteDashboard() {
               variant="contained"
               color="secondary"
               fullWidth
-              style={{ marginTop: 10 }}
+              sx={{
+                backgroundColor: "grey",
+                color: "#592020",
+                margin: "3px",
+                "&:hover": {
+                  backgroundColor: "#bdabab",
+                },
+              }}
             >
               Chiudi
             </Button>
           </div>
         </Drawer>
       </div>
-      <Grid container spacing={2} style={{ marginTop: 60, padding:20 , margin:"0 auto"}}>
+      <Grid container spacing={2} style={{ marginTop: 60, padding:"60px" , margin:"0 auto", display:"flex", justifyContent:"center"}}>
         {filteredProducts.map((product) => (
-          <Grid item sm={6} md={3} key={product.id}>
+          <Grid item sm={6} md={3} key={product.id} sx={{margin:"20px", display:"flex", justifyContent:"center"}}>
             <Card product={product} handleDeleteProduct={handleDeleteProduct} />
           </Grid>
         ))}

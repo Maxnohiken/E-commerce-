@@ -47,11 +47,13 @@ export default function Cart() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                margin: "5px",
+                padding: "5px",
               }}
             >
               <CardMedia
                 component="img"
-                sx={{ width: 60, height: 60, marginRight: "16px" }}
+                sx={{ width: 60, height: 60, margin:"5px" }}
                 image={item.prod.image}
                 alt={item.prod.title}
               />

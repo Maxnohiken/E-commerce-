@@ -44,7 +44,14 @@ export default function ItemModify({ product }: Props) {
 
   return (
     <>
-      <Button color="inherit" onClick={handleOpen}>
+      <Button sx={{
+              backgroundColor: "grey",
+              color: "#592020",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#bdabab",
+              },
+            }} onClick={handleOpen}>
         Modifica
       </Button>
       <Dialog open={open} onClose={handleClose}>

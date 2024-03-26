@@ -38,6 +38,9 @@ export function Card({ product, handleDeleteProduct }: Props) {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "10px",
+        margin: "10px",
+        maxWidth: "250px",
+        minWidth: "200px",
         borderRadius: "15px",
         boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
       }}
@@ -84,6 +87,11 @@ export function Card({ product, handleDeleteProduct }: Props) {
       <CardActions sx={{ justifyContent: "flex-end" }}>
         {location.pathname === "/" && (
           <Button
+            sx={{ backgroundColor: "#592020",
+            color: "white",
+            margin: "3px",
+            "&:hover": {
+              backgroundColor: "#973030" }}}
             variant="contained"
             endIcon={<ShoppingCart />}
             disabled={totalAvailable === 0}

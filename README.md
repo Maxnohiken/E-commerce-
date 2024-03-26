@@ -34,3 +34,7 @@ Siamo:
 - Pietro Montalbano ( pietro.montalbano9706@gmail.com )
 - Massimiliano Arena ( massimilianoarena0606@gmail.com )
 - Francesco Alessandro Pizzino ( baubauwest@gmail.com ) 
+
+![Screen1][Immagine 2024-03-26 160148]
+![Screen2][Immagine 2024-03-26 160214]
+![Screen3][]

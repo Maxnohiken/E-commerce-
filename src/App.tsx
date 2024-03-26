@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import { useContext } from "react";
 import { AppContext } from "./Context";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { Route404 } from "./Routes/404";
+import Route404 from "./Routes/404";
 import { RouteHome } from "./Routes/Home";
 
 import { RouteProtectedCheckout } from "./Routes/routeProtectedCheckout";

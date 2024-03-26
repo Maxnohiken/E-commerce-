@@ -14,15 +14,16 @@ Abbiamo adottato il Context API di React, il JSON Server e il Local Storage per 
 ## Rotte Organizzate
 
 Le rotte dell'applicazione sono state organizzate in modo logico per garantire una navigazione fluida agli utenti. Abbiamo utilizzato React Router per gestire le rotte e consentire agli utenti di accedere facilmente alle diverse sezioni dell'e-commerce, come la homepage, la pagina dei prodotti e la pagina del carrello.
-
+![Screen2](Screen_Dashboard.png)
 ## Utilizzo degli Hook
 
 Gli hook di React sono stati utilizzati nel progetto per gestire lo stato locale, effettuare chiamate API e accedere al Context dell'applicazione. Ogni hook è stato utilizzato in modo mirato per ottimizzare le prestazioni e garantire un codice pulito e manutenibile. Gli hook utilizzati sono stati useState, useContext, useEffect, useNavigate e useLocation.
 
 ## Componenti
 
-Il processo di creazione e gestione dei componenti segue diversi step. Iniziamo con la creazione del layout dell'applicazione e l'implementazione dei componenti principali. Successivamente, integriamo la logica di business utilizzando il Context API e JSON Server di React e implementiamo le rotte dell'applicazione utilizzando React Router.
+Il processo di creazione e gestione dei componenti segue diversi step. Iniziamo con la creazione del layout dell'applicazione e l'implementazione dei componenti principali. Successivamente, integriamo la logica di business utilizzando il Context API e JSON Server di React e implementiamo le rotte dell'applicazione utilizzando React Router. Un esempio è la componente pay.
 
+![Screen3](Screen_Pay.png)
 ## CSS
 
 Infine, abbiamo implementato all'interno della nostra UI alcune componenti importate da MUI e JoyUI. Tra le componenti importanti troviamo i vari drawer utilizzati per la realizzazione del carrello e l'aggiunta di prodotti all'interno della store. Inoltre, per il login e per la modifica del prodotto abbiamo utilizzato dei domponenti pop-up.
@@ -36,6 +37,6 @@ Siamo:
 - Francesco Alessandro Pizzino ( baubauwest@gmail.com ) 
 
 
-![Screen2](Screen_Dashboard.png)
-![Screen3](Screen_Pay.png)
+
+
 ![Screen4](Screen404.png)

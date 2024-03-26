@@ -36,19 +36,20 @@ export default function Cart() {
               sx={{
                 border: "1px solid #ccc",
                 borderRadius: "8px",
-                padding: "15px",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                margin: "5px",
+                padding: "5px",
               }}
             >
               <CardMedia
                 component="img"
-                sx={{ width: 60, height: 60, marginRight: "16px" }}
+                sx={{ width: 60, height: 60, margin:"5px" }}
                 image={item.prod.image}
                 alt={item.prod.title}
               />
-              <CardContent sx={{ flex: "1 0 auto" }}>
+              <CardContent sx={{ flex: "1 0 auto", padding:0 }}>
                 <Typography
                   component="div"
                   variant="h6"
@@ -75,7 +76,9 @@ export default function Cart() {
                 </Typography>
                 <Button
                   onClick={() => removeFromCart(item.prod.id)}
-                  sx={{ marginTop: "8px", fontSize: "small" }}
+                  sx={{ fontSize: "small" ,backgroundColor:"grey", color:"#592020", margin:"3px", 
+                  '&:hover': {
+                    backgroundColor: "#bdabab"} }}
                 >
                   Rimuovi
                 </Button>
@@ -85,7 +88,7 @@ export default function Cart() {
           <Typography>Totale: {total}</Typography>
           <Button
             variant="contained"
-            sx={{backgroundColor:"#592020", color:"white", 
+            sx={{backgroundColor:"#592020", color:"white",margin:"3px", 
             "&:hover": {
               backgroundColor: "#973030"}}
             }
@@ -97,9 +100,9 @@ export default function Cart() {
           </Button>
           <Button 
             onClick={emptyCart}
-            sx={{backgroundColor:"grey", color:"#592020", 
+            sx={{backgroundColor:"grey", color:"#592020", margin:"3px", 
             '&:hover': {
-              backgroundColor: "#ff6666"}}
+              backgroundColor: "#bdabab"}}
             }
           >Svuota Carrello</Button>
         </>

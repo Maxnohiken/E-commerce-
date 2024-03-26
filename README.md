@@ -38,3 +38,4 @@ Siamo:
 ![Screen1](Screen_Home.png)
 ![Screen2](Screen_Dashboard.png)
 ![Screen3](Screen_Pay.png)
+![Screen4](Screen404.png)

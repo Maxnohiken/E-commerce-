@@ -1,9 +1,10 @@
 import { Container, Grid, TextField } from "@mui/material";
 import { AppContext } from "../Context";
 import { useContext } from "react";
-import { Card } from "../components/card";
-import DrawerAppBar from "../components/navbarComponent";
+
 import Unsplash from "../components/unsplash";
+import { Card } from "../components/card";
+import DrawerAppBar from "../components/drawerAppBar";
 
 export function RouteHome() {
   const {
@@ -72,7 +73,6 @@ export function RouteHome() {
               <Card
                 product={product}
                 handleDeleteProduct={handleDeleteProduct}
-                sx={{display: "flex", justifyContent: "center"}}
               />
             </Grid>
           ))}

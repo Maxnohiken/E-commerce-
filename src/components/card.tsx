@@ -12,8 +12,8 @@ import {
 import { ShoppingCart } from "@mui/icons-material";
 import { AppContext } from "../Context";
 import { Product } from "../declarations";
-import ItemModify from "./itemModify";
 import ItemDetails from "./itemDetails";
+import ItemModify from "./itemModify";
 
 interface Props {
   product: Product;
@@ -87,11 +87,14 @@ export function Card({ product, handleDeleteProduct }: Props) {
       <CardActions sx={{ justifyContent: "flex-end" }}>
         {location.pathname === "/" && (
           <Button
-            sx={{ backgroundColor: "#592020",
-            color: "white",
-            margin: "3px",
-            "&:hover": {
-              backgroundColor: "#973030" }}}
+            sx={{
+              backgroundColor: "#592020",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#973030",
+              },
+            }}
             variant="contained"
             endIcon={<ShoppingCart />}
             disabled={totalAvailable === 0}

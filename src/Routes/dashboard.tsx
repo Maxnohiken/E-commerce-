@@ -66,7 +66,19 @@ export default function RouteDashboard() {
       console.error("Si è verificato un errore:", (error as Error).message);
     }
   };
-
+  if (products.length === 0)
+    return (
+      <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography>Nessun Prodotto Disponibile</Typography>
+      </div>
+    );
   return (
     <div>
       <Button

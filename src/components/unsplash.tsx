@@ -1,4 +1,4 @@
-function Unsplash() {
+export default function Unsplash() {
   return (
     <div
       style={{
@@ -38,5 +38,3 @@ function Unsplash() {
     </div>
   );
 }
-
-export default Unsplash;

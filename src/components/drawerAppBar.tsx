@@ -12,10 +12,12 @@ import {
   Box,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Cart from "./cart";
+
 import Badge from "@mui/material/Badge";
 import { AppContext } from "../Context";
-import RouteLoginButton from "./login";
+
+import Cart from "./cart";
+import Login from "./login";
 
 export default function DrawerAppBar() {
   const { username, admin, logout } = useContext(AppContext);
@@ -52,7 +54,7 @@ export default function DrawerAppBar() {
                 Logout {username}
               </Button>
             ) : (
-              <RouteLoginButton />
+              <Login />
             )}
             {admin && (
               <Button color="inherit" component={Link} to="/dashboard">

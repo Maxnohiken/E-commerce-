@@ -105,7 +105,10 @@ export default function ItemModify({ product }: Props) {
             variant="contained"
             color="primary"
             size="small"
-            onClick={handleEditButtonClick}
+            onClick={() => {
+              handleEditButtonClick();
+              handleClose();
+            }}
             sx={{
               backgroundColor: "#592020",
               color: "white",

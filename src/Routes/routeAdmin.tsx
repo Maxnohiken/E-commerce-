@@ -5,7 +5,7 @@ import { AppContext } from "../Context";
 export function RouteAdmin() {
   const { admin } = useContext(AppContext);
 
-  if (admin ) {
+  if (admin) {
     return <Outlet />;
   } else {
     return <Navigate to="/" />;

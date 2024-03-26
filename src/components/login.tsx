@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import { useContext } from "react";
 import { AppContext } from "../Context";
 
-export default function RouteLoginButton() {
+export default function Login() {
   const { login } = useContext(AppContext);
   const [inputUsername, setInputUsername] = useState("");
   const [inputPassword, setInputPassword] = useState("");

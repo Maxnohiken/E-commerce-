@@ -1,6 +1,6 @@
 
 # Progetto E-commerce su React
-![Screen1](Screen_Home.png)
+![Screen1](./screen_ReadMe/Screen_Home.png)
 Questo repository contiene il codice sorgente per un progetto di e-commerce sviluppato utilizzando React. In questo README, forniremo una panoramica del progetto, inclusi concetti chiave come la logica di business con Context, le rotte organizzate, gli hook utilizzati e i vari step di creazione e gestione dei dati e delle rotte dell'e-commerce.
 
 ## Panoramica del Progetto

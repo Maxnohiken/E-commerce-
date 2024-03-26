@@ -38,19 +38,19 @@ export default function ItemDetails({ product }: Props) {
           image={product.image}
           alt={product.title}
         />
-        <Typography variant="h6">{product.title}</Typography>
+        <Typography variant="h5" sx={{fontSize:"small", fontWeight:"bold"}}>{product.title}</Typography>
       </div>
       <Dialog open={open} onClose={handleClose}>
-        <DialogContent>
+        <DialogContent style={{width:"440px"}}>
           <div>
             <CardMedia
               component="img"
-              height="140"
+              height="300"
               image={product.image}
               alt={product.title}
             />
             <Typography variant="h6">{product.title}</Typography>
-            <Typography variant="body1">{product.description}</Typography>
+            <Typography variant="body1" sx={{fontSize:"small"}}>{product.description}</Typography>
             <Typography variant="body2">Prezzo: {product.price} €</Typography>
             <Typography variant="body2" color="text.secondary">
               <span>Disponibilità {totalAvailable}</span>

@@ -37,6 +37,7 @@ export function Card({ product, handleDeleteProduct }: Props) {
         flexDirection: "column",
         justifyContent: "space-between",
         alignItems: "center",
+        padding: "10px",
       }}
     >
       {location.pathname === "/dashboard" && admin && (

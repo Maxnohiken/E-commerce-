@@ -71,7 +71,7 @@ export default function Cart() {
                   {item.prod.price} €
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Disponibilità: {item.qty}
+                  Quantità: {item.qty}
                 </Typography>
                 <Button
                   onClick={() => removeFromCart(item.prod.id)}

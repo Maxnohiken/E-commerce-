@@ -35,6 +35,6 @@ Siamo:
 - Massimiliano Arena ( massimilianoarena0606@gmail.com )
 - Francesco Alessandro Pizzino ( baubauwest@gmail.com ) 
 
-![Screen1](Screen_Home)
-![Screen2](Screen_Dashboard)
-![Screen3](Screen_Pay)
+![Screen1](Screen_Home.png)
+![Screen2](Screen_Dashboard.png)
+![Screen3](Screen_Pay.png)

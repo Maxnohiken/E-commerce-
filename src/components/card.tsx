@@ -23,7 +23,7 @@ interface Props {
 export function Card({ product, handleDeleteProduct }: Props) {
   const { addToCart, getTotalAvailableProduct, admin } = useContext(AppContext);
   const totalAvailable = getTotalAvailableProduct(product);
-  const [input, setInput] = useState(1);
+  const [input] = useState(1);
 
   const location = useLocation();
 
@@ -54,15 +54,20 @@ export function Card({ product, handleDeleteProduct }: Props) {
         </div>
       )}
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={product.image}
-          alt={product.title}
-        />
-
-        <CardContent sx={{padding:"15px"}}>
-          <ItemDetails product={product} />
+        <CardContent>
+          {location.pathname === "/" ? (
+            <ItemDetails product={product} />
+          ) : (
+            <div>
+              <CardMedia
+                component="img"
+                height="140"
+                image={product.image}
+                alt={product.title}
+              />
+              <Typography>{product.title}</Typography>
+            </div>
+          )}
           <Typography variant="body2" color="text.secondary">
             {product.price} €
           </Typography>

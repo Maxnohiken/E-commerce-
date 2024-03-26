@@ -9,7 +9,7 @@ Il progetto si concentra sull'implementazione di un'esperienza di shopping onlin
 
 ## Logica di Business con Context e JSON Server
 
-Abbiamo adottato il Context API di React e il JSON Server per gestire la logica di business dell'applicazione e per la gestione diretta dei prodotti. Utilizzando lo stato globale fornito da Context, possiamo memorizzare i dati relativi all'e-commerce e definire le operazioni necessarie, come l'aggiunta e la rimozione di prodotti. 
+Abbiamo adottato il Context API di React, il JSON Server e il Local Storage per gestire la logica di business dell'applicazione e per la gestione diretta dei prodotti. Utilizzando lo stato globale fornito da Context, possiamo memorizzare i dati relativi all'e-commerce e definire le operazioni necessarie, come l'aggiunta e la rimozione di prodotti. 
 
 ## Rotte Organizzate
 

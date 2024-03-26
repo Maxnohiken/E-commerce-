@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Card } from "../components/card";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context";
-import HouseIcon from '@mui/icons-material/House';
+import HouseIcon from "@mui/icons-material/House";
 
 export default function RouteDashboard() {
   const {
@@ -71,19 +71,37 @@ export default function RouteDashboard() {
 
   return (
     <div style={{ marginLeft: drawerWidth }}>
-      <Button 
+      <Button
         onClick={() => navigate("/")}
-        style={{ position: "absolute", top: 20, right: 20, zIndex: 999, color: "#592020"}}
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          zIndex: 999,
+          color: "#592020",
+        }}
       >
         <HouseIcon />
       </Button>
-      <div style={{ position: "absolute", top: 20, left: open ? 580 : 20 }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 20,
+          left: open ? 580 : 20,
+          zIndex: 999,
+        }}
+      >
         {!open && (
           <IconButton onClick={toggleDrawer(true)} edge="start">
             <MenuIcon />
           </IconButton>
         )}
-        <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
+        <Drawer
+          anchor="left"
+          open={open}
+          onClose={toggleDrawer(false)}
+          style={{ zIndex: 1000 }}
+        >
           <div style={{ width: 550, padding: 20 }}>
             <Typography variant="h6" align="center" gutterBottom>
               Aggiungi Prodotto
@@ -127,11 +145,14 @@ export default function RouteDashboard() {
               variant="contained"
               color="primary"
               fullWidth
-              sx={{ backgroundColor: "#592020",
-              color: "white",
-              margin: "3px",
-              "&:hover": {
-                backgroundColor: "#973030", }}}
+              sx={{
+                backgroundColor: "#592020",
+                color: "white",
+                margin: "3px",
+                "&:hover": {
+                  backgroundColor: "#973030",
+                },
+              }}
             >
               Aggiungi
             </Button>
@@ -154,9 +175,31 @@ export default function RouteDashboard() {
           </div>
         </Drawer>
       </div>
-      <Grid container spacing={2} style={{ marginTop: 60, padding:"60px" , margin:"0 auto", display:"flex", justifyContent:"center"}}>
+      <Grid
+        container
+        spacing={2}
+        style={{
+          marginTop: 60,
+          padding: "60px",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          zIndex: 1,
+        }}
+      >
         {filteredProducts.map((product) => (
-          <Grid item sm={6} md={3} key={product.id} sx={{margin:"20px", display:"flex", justifyContent:"center"}}>
+          <Grid
+            item
+            sm={6}
+            md={3}
+            key={product.id}
+            sx={{
+              margin: "20px",
+              display: "flex",
+              justifyContent: "center",
+              zIndex: 1,
+            }}
+          >
             <Card product={product} handleDeleteProduct={handleDeleteProduct} />
           </Grid>
         ))}

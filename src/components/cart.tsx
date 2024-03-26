@@ -14,11 +14,11 @@ export default function Cart() {
   const total = getTotalProductInCart();
 
   const TotalPrice = () => {
-    let prezzoTotale = 0;
+    let TotalPrice = 0;
     cart.forEach((item) => {
-      prezzoTotale += item.prod.price * item.qty;
+      TotalPrice += item.prod.price * item.qty;
     });
-    return prezzoTotale.toFixed(2);
+    return TotalPrice.toFixed(2);
   };
 
   return (

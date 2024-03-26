@@ -72,6 +72,14 @@ export default function ItemDetails({ product }: Props) {
               endIcon={<ShoppingCart />}
               disabled={totalAvailable === 0}
               onClick={() => addToCart(product, input)}
+              sx={{
+                backgroundColor: "#592020",
+                color: "white",
+                margin: "3px",
+                "&:hover": {
+                  backgroundColor: "#973030",
+                },
+              }}
             >
               {totalAvailable >= 1 ? "Aggiungi al carrello" : "Non disponibile"}
             </Button>

@@ -44,18 +44,29 @@ export default function ItemModify({ product }: Props) {
 
   return (
     <>
-      <Button sx={{
-              backgroundColor: "grey",
-              color: "#592020",
-              margin: "3px",
-              "&:hover": {
-                backgroundColor: "#bdabab",
-              },
-            }} onClick={handleOpen}>
+      <Button
+        sx={{
+          backgroundColor: "#592020",
+          color: "white",
+          margin: "3px",
+          "&:hover": {
+            backgroundColor: "#973030",
+          },
+        }}
+        onClick={handleOpen}
+      >
         Modifica
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogContent>
+        <DialogContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: "400px",
+            margin: "30px",
+            gap: "10px",
+          }}
+        >
           <TextField
             type="text"
             placeholder="Titolo"
@@ -90,17 +101,37 @@ export default function ItemModify({ product }: Props) {
             value={editedFields.description}
             onChange={(e) => handleFieldChange("description", e.target.value)}
           />
-          <Button onClick={handleClose}>CHIUDI</Button>
-        </DialogContent>
-        <DialogActions>
           <Button
             variant="contained"
             color="primary"
             size="small"
-            style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}
             onClick={handleEditButtonClick}
+            sx={{
+              backgroundColor: "#592020",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#973030",
+              },
+            }}
           >
             Modifica
+          </Button>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={handleClose}
+            sx={{
+              backgroundColor: "#f40000",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#bdabab",
+              },
+            }}
+            style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}
+          >
+            CHIUDI
           </Button>
         </DialogActions>
       </Dialog>

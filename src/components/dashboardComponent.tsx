@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {
   IconButton,
   Drawer,
@@ -22,17 +22,20 @@ export default function RouteDashboard() {
     setProducts,
   } = useContext(AppContext);
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const [newProduct, setNewProduct] = useState({
     title: "",
     price: "",
     image: "",
     quantity: "",
   });
-  const [drawerWidth, setDrawerWidth] = useState(300);
 
-  const toggleDrawer = (isOpen: boolean) => () => {
-    setOpen(isOpen);
+  const handleDrawerOpen = () => {
+    setOpenDrawer(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpenDrawer(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,13 +67,8 @@ export default function RouteDashboard() {
     }
   };
 
-  useEffect(() => {
-    const drawerWidth = open ? 580 : 0;
-    setDrawerWidth(drawerWidth);
-  }, [open]);
-
   return (
-    <div style={{ marginLeft: drawerWidth }}>
+    <div>
       <Button
         onClick={() => navigate("/")}
         style={{
@@ -83,26 +81,30 @@ export default function RouteDashboard() {
       >
         <HouseIcon />
       </Button>
-      <div
-        style={{
-          position: "absolute",
-          top: 20,
-          left: open ? 580 : 20,
-          zIndex: 999,
-        }}
+      <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+        onClick={handleDrawerOpen}
+        style={{ position: "relative" }}
       >
-        {!open && (
-          <IconButton onClick={toggleDrawer(true)} edge="start">
-            <MenuIcon />
-          </IconButton>
-        )}
+        <MenuIcon />
+      </IconButton>
+      <div>
         <Drawer
+          sx={{
+            width: "38%",
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: "38%",
+              padding: "10px",
+            },
+          }}
           anchor="left"
-          open={open}
-          onClose={toggleDrawer(false)}
-          style={{ zIndex: 1000 }}
+          open={openDrawer}
+          onClose={handleDrawerClose}
         >
-          <div style={{ width: 550, padding: 20 }}>
+          <div style={{ width: 700, padding: 20 }}>
             <Typography variant="h6" align="center" gutterBottom>
               Aggiungi Prodotto
             </Typography>
@@ -157,7 +159,7 @@ export default function RouteDashboard() {
               Aggiungi
             </Button>
             <Button
-              onClick={toggleDrawer(false)}
+              onClick={handleDrawerClose}
               variant="contained"
               color="secondary"
               fullWidth
@@ -194,7 +196,7 @@ export default function RouteDashboard() {
             md={3}
             key={product.id}
             sx={{
-              margin: "20px",
+              marginBottom: "30px",
               display: "flex",
               justifyContent: "center",
               zIndex: 1,

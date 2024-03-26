@@ -2,7 +2,7 @@ function Unsplash() {
   return (
     <div
       style={{
-        position: "relative", 
+        position: "relative",
         overflow: "hidden",
         maxHeight: "80vh",
         display: "grid",
@@ -14,17 +14,17 @@ function Unsplash() {
         width="100%"
         alt="girl-with-yellow-backgroud"
         style={{
-          position: "relative", 
+          position: "relative",
         }}
       />
       <div
         style={{
-          position: "absolute", 
-          top: "50%", 
+          position: "absolute",
+          top: "50%",
           left: "50%",
-          transform: "translateY(-50%)", 
-          textAlign: "center", 
-          width: "50%", 
+          transform: "translateY(-50%)",
+          textAlign: "center",
+          width: "50%",
           fontFamily: "Roboto",
         }}
       >

@@ -31,17 +31,27 @@ export default function ItemDetails({ product }: Props) {
 
   return (
     <MaterialCard>
-      <div onClick={handleOpen}>
+      <div onClick={handleOpen} style={{ border: "none", outline: "none" }}>
         <CardMedia
           component="img"
           height="140"
           image={product.image}
           alt={product.title}
         />
-        <Typography variant="h5" sx={{fontSize:"small", fontWeight:"bold"}}>{product.title}</Typography>
+        <Typography
+          variant="h6"
+          sx={{ fontSize: "medium", fontWeight: "bold" }}
+        >
+          {product.title}
+        </Typography>
       </div>
-      <Dialog open={open} onClose={handleClose}>
-        <DialogContent style={{width:"440px"}}>
+      s
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        style={{ border: "none", outline: "none" }}
+      >
+        <DialogContent style={{ width: "440px" }}>
           <div>
             <CardMedia
               component="img"
@@ -50,7 +60,9 @@ export default function ItemDetails({ product }: Props) {
               alt={product.title}
             />
             <Typography variant="h6">{product.title}</Typography>
-            <Typography variant="body1" sx={{fontSize:"small"}}>{product.description}</Typography>
+            <Typography variant="body1" sx={{ fontSize: "small" }}>
+              {product.description}
+            </Typography>
             <Typography variant="body2">Prezzo: {product.price} €</Typography>
             <Typography variant="body2" color="text.secondary">
               <span>Disponibilità {totalAvailable}</span>

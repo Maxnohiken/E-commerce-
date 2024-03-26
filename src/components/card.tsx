@@ -38,6 +38,8 @@ export function Card({ product, handleDeleteProduct }: Props) {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "10px",
+        borderRadius: "15px",
+        boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
       }}
     >
       {location.pathname === "/dashboard" && admin && (
@@ -54,7 +56,7 @@ export function Card({ product, handleDeleteProduct }: Props) {
         </div>
       )}
       <CardActionArea>
-        <CardContent>
+        <CardContent sx={{ padding: "15px" }}>
           {location.pathname === "/" ? (
             <ItemDetails product={product} />
           ) : (

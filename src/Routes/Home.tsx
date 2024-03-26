@@ -6,15 +6,40 @@ import DrawerAppBar from "../components/navbarComponent";
 import Unsplash from "../components/unsplash";
 
 export function RouteHome() {
-  const { filteredProducts, paid, handleDeleteProduct, searchTerm, handleSearchChange } = useContext(AppContext);
+  const {
+    filteredProducts,
+    paid,
+    handleDeleteProduct,
+    searchTerm,
+    handleSearchChange,
+  } = useContext(AppContext);
 
   return (
     <>
       {!paid && <DrawerAppBar />}
       <Unsplash />
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width:"85%", margin:"auto" }}>
-        <h2 style={{ textAlign: "right", color: "#592020", marginRight: "auto" }}>Prodotti</h2>
-        <div style={{ width:"400px", display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "85%",
+          margin: "auto",
+        }}
+      >
+        <h2
+          style={{ textAlign: "right", color: "#592020", marginRight: "auto" }}
+        >
+          Prodotti
+        </h2>
+        <div
+          style={{
+            width: "400px",
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
           <TextField
             label=""
             placeholder="Ricerca Prodotto"
@@ -26,8 +51,8 @@ export function RouteHome() {
               backgroundColor: "white",
               width: "200px",
               maxWidth: "50%",
-              maxHeight:"30px",
-              '& div': { maxHeight:'30px'}
+              maxHeight: "30px",
+              "& div": { maxHeight: "30px" },
             }}
             value={searchTerm}
             onChange={handleSearchChange}
@@ -37,8 +62,17 @@ export function RouteHome() {
       <Container maxWidth="lg">
         <Grid container spacing={2}>
           {filteredProducts.map((product) => (
-            <Grid item sm={6} md={3} sx={{display:"flex", justifyContent:"center"}} key={product.id}>
-              <Card product={product} handleDeleteProduct={handleDeleteProduct} />
+            <Grid
+              item
+              sm={6}
+              md={3}
+              sx={{ display: "flex", justifyContent: "center" }}
+              key={product.id}
+            >
+              <Card
+                product={product}
+                handleDeleteProduct={handleDeleteProduct}
+              />
             </Grid>
           ))}
         </Grid>

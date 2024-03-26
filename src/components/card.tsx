@@ -61,7 +61,11 @@ export function Card({ product, handleDeleteProduct }: Props) {
         />
 
         <CardContent>
-          <ItemDetails product={product} />
+          {location.pathname === "/" ? (
+            <ItemDetails product={product} />
+          ) : (
+            <Typography>{product.title}</Typography>
+          )}
           <Typography variant="body2" color="text.secondary">
             {product.price} €
           </Typography>

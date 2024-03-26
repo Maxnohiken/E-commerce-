@@ -18,7 +18,7 @@ interface Props {
 export default function ItemDetails({ product }: Props) {
   const { addToCart, getTotalAvailableProduct } = useContext(AppContext);
   const [open, setOpen] = useState(false);
-  const [input, setInput] = useState(1);
+  const [input] = useState(1);
   const totalAvailable = getTotalAvailableProduct(product);
 
   const handleOpen = () => {

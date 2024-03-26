@@ -31,7 +31,17 @@ export default function RouteLoginButton() {
 
   return (
     <>
-      <Button color="inherit" onClick={handleOpen}>
+      <Button
+        sx={{
+          backgroundColor: "#592020",
+          color: "white",
+          margin: "3px",
+          "&:hover": {
+            backgroundColor: "#973030",
+          },
+        }}
+        onClick={handleOpen}
+      >
         Login
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -54,8 +64,30 @@ export default function RouteLoginButton() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleLogin} variant="contained" color="primary">
+          <Button
+            onClick={handleClose}
+            sx={{
+              backgroundColor: "grey",
+              color: "#592020",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#bdabab",
+              },
+            }}
+          >
+            Cancella
+          </Button>
+          <Button
+            onClick={handleLogin}
+            sx={{
+              backgroundColor: "#592020",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#973030",
+              },
+            }}
+          >
             Login
           </Button>
         </DialogActions>

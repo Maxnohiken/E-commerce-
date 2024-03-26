@@ -32,6 +32,12 @@ export default function ItemDetails({ product }: Props) {
   return (
     <MaterialCard>
       <div onClick={handleOpen}>
+        <CardMedia
+          component="img"
+          height="140"
+          image={product.image}
+          alt={product.title}
+        />
         <Typography variant="h6">{product.title}</Typography>
       </div>
       <Dialog open={open} onClose={handleClose}>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 
 export default function Cart() {
   const { getTotalProductInCart, cart, removeFromCart, emptyCart, checkout } =
@@ -19,14 +19,20 @@ export default function Cart() {
         Il mio carrello
       </Typography>
       {cart.length === 0 ? (
-        <div style={{padding:"100px"}}>
-          <Typography>Il carrello è vuoto</Typography>
-          <ProductionQuantityLimitsIcon sx={{
-            width: "130px",
-            fontSize: "80px",
-            color: "gray",
-          }}/>
-          <Typography sx={{textAlign:"center"}}>Continua con lo Shopping</Typography>
+        <div style={{ padding: "100px" }}>
+          <Typography sx={{ textAlign: "center" }}>
+            Il carrello è vuoto
+          </Typography>
+          <ProductionQuantityLimitsIcon
+            sx={{
+              width: "130px",
+              fontSize: "80px",
+              color: "gray",
+            }}
+          />
+          <Typography sx={{ textAlign: "center" }}>
+            Continua con lo Shopping
+          </Typography>
         </div>
       ) : (
         <>
@@ -36,7 +42,8 @@ export default function Cart() {
               sx={{
                 border: "1px solid #ccc",
                 borderRadius: "8px",
-                padding: "15px",
+                padding: "7px",
+                margin: "5px",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
@@ -48,7 +55,7 @@ export default function Cart() {
                 image={item.prod.image}
                 alt={item.prod.title}
               />
-              <CardContent sx={{ flex: "1 0 auto" }}>
+              <CardContent sx={{ flex: "1 0 auto", padding: "0px" }}>
                 <Typography
                   component="div"
                   variant="h6"
@@ -75,7 +82,13 @@ export default function Cart() {
                 </Typography>
                 <Button
                   onClick={() => removeFromCart(item.prod.id)}
-                  sx={{ marginTop: "8px", fontSize: "small" }}
+                  sx={{
+                    fontSize: "small",
+                    backgroundColor: "grey",
+                    color: "#592020",
+                    margin: "3px",
+                    "&:hover": { backgroundColor: "#bdabab" },
+                  }}
                 >
                   Rimuovi
                 </Button>
@@ -85,23 +98,33 @@ export default function Cart() {
           <Typography>Totale: {total}</Typography>
           <Button
             variant="contained"
-            sx={{backgroundColor:"#592020", color:"white", 
-            "&:hover": {
-              backgroundColor: "#973030"}}
-            }
+            sx={{
+              backgroundColor: "#592020",
+              color: "white",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#973030",
+              },
+            }}
             component={Link}
             to="/checkout"
             onClick={checkout}
           >
             Acquista
           </Button>
-          <Button 
+          <Button
             onClick={emptyCart}
-            sx={{backgroundColor:"grey", color:"#592020", 
-            '&:hover': {
-              backgroundColor: "#ff6666"}}
-            }
-          >Svuota Carrello</Button>
+            sx={{
+              backgroundColor: "grey",
+              color: "#592020",
+              margin: "3px",
+              "&:hover": {
+                backgroundColor: "#bdabab",
+              },
+            }}
+          >
+            Svuota Carrello
+          </Button>
         </>
       )}
     </>

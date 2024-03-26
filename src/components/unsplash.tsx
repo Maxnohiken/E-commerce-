@@ -28,8 +28,12 @@ function Unsplash() {
           fontFamily: "Roboto",
         }}
       >
-        <h2 style={{ color: "white" }}>BENVENUTO NEL NOSTRO NEGOZIO</h2>
-        <h3 style={{ color: "white" }}>Scopri le nostre offerte</h3>
+        <h2 style={{ color: "white", fontSize: "40px" }}>
+          BENVENUTO NEL NOSTRO NEGOZIO
+        </h2>
+        <h3 style={{ color: "white", fontSize: "25px" }}>
+          Scopri le nostre offerte
+        </h3>
       </div>
     </div>
   );

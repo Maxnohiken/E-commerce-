@@ -9,8 +9,8 @@ import { ContextProvider } from "./Context.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ContextProvider>
-    <div style={{ backgroundColor: "#e0c974" }}>
+    <div style= {{backgroundColor:"#e0c974"}}>
       <App />
-    </div>
+      </div>
   </ContextProvider>
 );

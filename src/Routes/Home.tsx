@@ -72,6 +72,7 @@ export function RouteHome() {
               <Card
                 product={product}
                 handleDeleteProduct={handleDeleteProduct}
+                sx={{display: "flex", justifyContent: "center"}}
               />
             </Grid>
           ))}

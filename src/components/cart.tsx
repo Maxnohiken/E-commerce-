@@ -13,6 +13,14 @@ export default function Cart() {
   useContext(AppContext);
   const total = getTotalProductInCart();
 
+  const TotalPrice = () => {
+    let prezzoTotale = 0;
+    cart.forEach((item) => {
+      prezzoTotale += item.prod.price * item.qty;
+    });
+    return prezzoTotale.toFixed(2);
+  };
+
   return (
     <>
       <Typography variant="h6" component="div" style={{ cursor: "pointer" }}>
@@ -47,13 +55,11 @@ export default function Cart() {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
-                margin: "5px",
-                padding: "5px",
               }}
             >
               <CardMedia
                 component="img"
-                sx={{ width: 60, height: 60, margin:"5px" }}
+                sx={{ width: 60, height: 60, margin: "5px" }}
                 image={item.prod.image}
                 alt={item.prod.title}
               />
@@ -97,7 +103,8 @@ export default function Cart() {
               </CardContent>
             </Card>
           ))}
-          <Typography>Totale: {total}</Typography>
+          <Typography>Prodotti Totali: {total}</Typography>
+          <Typography>Totale: {TotalPrice()} €</Typography>
           <Button
             variant="contained"
             sx={{
